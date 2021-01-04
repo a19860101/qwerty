@@ -11,7 +11,7 @@ php artisan make:migration create_posts_table
 
 php artisan make:migration add_user_id_to_posts --table=posts
 
-#執行migration
+#執行migration (推到資料庫)
 php artisan migrate
 
 #回復上一次migrate
