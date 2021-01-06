@@ -27,8 +27,11 @@ class PostController extends Controller
 
         return redirect()->route('posts.index');
     }
-    function edit(){
-        return view('posts.edit');
+    function edit($id){
+        $posts = DB::select('SELECT * FROM posts WHERE id = ?',[
+            $id
+        ]);
+        return view('posts.edit',compact('posts'));
     }
     function show($id){
         // return $id;
@@ -37,5 +40,20 @@ class PostController extends Controller
             $id
         ]);
         return view('posts.show',compact('posts'));
+    }
+    function destroy(Request $request){
+        // return $request;
+        // return $id;
+        DB::delete('DELETE FROM posts WHERE id = ?',[$request->id]);
+        return redirect()->route('posts.index');
+    }
+    function update(Request $request){
+        DB::update('UPDATE posts SET title=?,content=?,updated_at=? WHERE id = ?',[
+            $request->title,
+            $request->content,
+            now(),
+            $request->id
+        ]);
+        return redirect()->route('posts.index');
     }
 }
