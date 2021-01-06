@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-6 mx-auto">
             <h2>新增文章</h2>
-            <form action="" method="post">
+            <form action="{{ route('posts.store')}}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="title">文章標題</label>

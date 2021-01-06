@@ -14,7 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/posts','PostController@index');
-Route::get('/posts/create','PostController@create');
-Route::get('/posts/edit','PostController@edit');
-Route::get('/posts/show','PostController@show');
+Route::get('/posts','PostController@index')->name('posts.index');
+Route::get('/posts/create','PostController@create')->name('posts.create');
+Route::get('/posts/edit','PostController@edit')->name('posts.edit');
+Route::get('/posts/show/{id}','PostController@show')->name('posts.show');
+
+Route::post('/posts','PostController@store')->name('posts.store');
