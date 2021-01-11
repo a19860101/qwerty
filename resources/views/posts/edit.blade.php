@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-6 mx-auto">
             <h2>編輯文章</h2>
-            <form action="{{route('posts.update',['id'=>$post->id])}}" method="post">
+            <form action="{{route('posts.update',['post'=>$post->id])}}" method="post">
                 @csrf
                 @method('put')
                 <div class="form-group">

@@ -57,6 +57,8 @@ class ProductsController extends Controller
     public function show($id)
     {
         //
+        $products = DB::table('products')->where('id',$id)->get();
+        return view('product.show',compact('products'));
     }
 
     /**

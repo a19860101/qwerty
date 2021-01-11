@@ -16,7 +16,7 @@
                     <td>{{$prod->id}}</td>
                     <td>{{$prod->title}}</td>
                     <td>
-                        <a href="#">更多資訊</a>
+                        <a href="{{route('products.show',['product'=>$prod->id])}}">更多資訊</a>
                     </td>
                 </tr>
                 @endforeach
