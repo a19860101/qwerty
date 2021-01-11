@@ -57,8 +57,10 @@ class PostController extends Controller
     public function show($id)
     {
         //
-        $posts = DB::table('posts')->where('id',$id)->get();
-        return view('posts.show',compact('posts'));
+        // $posts = DB::table('posts')->where('id',$id)->get();
+        // $post = DB::table('posts')->where('id',$id)->first();
+        $post = DB::table('posts')->find($id);
+        return view('posts.show',compact('post'));
 
         // return 'posts show';
     }
@@ -72,8 +74,9 @@ class PostController extends Controller
     public function edit($id)
     {
         //
-        $posts = DB::table('posts')->where('id',$id)->get();
-        return view('posts.edit',compact('posts'));
+        // $posts = DB::table('posts')->where('id',$id)->get();
+        $post = DB::table('posts')->find($id);
+        return view('posts.edit',compact('post'));
     }
 
     /**

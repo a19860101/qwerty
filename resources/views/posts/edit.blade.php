@@ -1,7 +1,6 @@
 @extends('template.master')
 @section('content')
 
-@foreach($posts as $post)
 <div class="container">
     <div class="row">
         <div class="col-6 mx-auto">
@@ -23,5 +22,4 @@
         </div>
     </div>
 </div>
-@endforeach
 @endsection

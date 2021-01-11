@@ -2,7 +2,6 @@
 @section('content')
 <div class="container py-5">
     <div class="row justify-content-center">
-        @foreach($posts as $post)
         <div class="col-8">
             <h3>{{$post->title}}</h3>
             <div class="content">
@@ -18,7 +17,6 @@
             </form>
             <a href="{{route('posts.edit',['post' => $post->id])}}" class="btn btn-outline-success">編輯</a>
         </div>
-        @endforeach
     </div>
 </div>
 @endsection
