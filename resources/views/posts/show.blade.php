@@ -11,7 +11,7 @@
             <div>最後更新時間 {{$post->updated_at}}</div>
             <hr>
             <a href="#" class="btn btn-outline-info" onclick="history.back()">回上頁</a>
-            <form action="/posts" method="post" class="d-inline-block">
+            <form action="{{route('posts.destroy',['id'=>$post->id])}}" method="post" class="d-inline-block">
                 @csrf
                 @method('delete')
                 <input type="submit" class="btn btn-outline-danger" value="刪除" onclick="return confirm('確認刪除？')">
