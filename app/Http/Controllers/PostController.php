@@ -52,8 +52,10 @@ class PostController extends Controller
         //
         $posts = DB::table('posts')->where('id',$id)->get();
         return view('posts.show',compact('posts'));
-    }
 
+        // return 'posts show';
+    }
+// 
     /**
      * Show the form for editing the specified resource.
      *
@@ -63,6 +65,8 @@ class PostController extends Controller
     public function edit($id)
     {
         //
+        $posts = DB::table('posts')->where('id',$id)->get();
+        return view('posts.edit',compact('posts'));
     }
 
     /**

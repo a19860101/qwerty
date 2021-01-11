@@ -11,6 +11,7 @@
             <div class="content">
                 {{$post->content}}
             </div>
+            <a href="show/{{$post->id}}" class="btn btn-primary">繼續閱讀</a>
             <div>最後更新時間 {{$post->updated_at}}</div>
         <hr>
         </div>
