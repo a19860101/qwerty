@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class ProductsController extends Controller
 {
@@ -37,6 +39,12 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         //
+        DB::table('products')->insert([
+            'title'     => $request->title,
+            'created_at'=> now(),
+            'updated_at'=> now(),
+        ]);
+        return redirect()->route('products.index');
     }
 
     /**

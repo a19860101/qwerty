@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-6 mx-auto">
             <h2>新增產品</h2>
-            <form action="" method="post">
+            <form action="{{route('products.store')}}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="title">產品名稱</label>
