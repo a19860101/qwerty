@@ -27,7 +27,7 @@ class PostController extends Controller
     public function create()
     {
         //
-        return 'create';
+        return view('posts.create');
     }
 
     /**
@@ -39,6 +39,13 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        DB::table('posts')->insert([
+            'title'     => $request->title,
+            'content'   => $request->content,
+            'created_at'=> now(),
+            'updated_at'=> now()
+        ]);
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -90,5 +97,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+        DB::table('posts')->where('id',$id)->delete();
+        return redirect()->route('posts.index');
     }
 }
