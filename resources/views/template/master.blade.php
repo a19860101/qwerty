@@ -21,7 +21,7 @@
                 <a class="nav-link" href="/posts/create">新增文章</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link" href="{{route('products.index')}}">產品列表</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>

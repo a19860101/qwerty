@@ -26,3 +26,4 @@ Route::put('/posts/{id}','PostController@update')->name('posts.update');
 
 
 // Route::resource('/posts','PostController');
+Route::resource('/products','ProductsController');
