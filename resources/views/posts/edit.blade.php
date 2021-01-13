@@ -2,8 +2,8 @@
 @section('content')
 
 <div class="container">
-    <div class="row">
-        <div class="col-6 mx-auto">
+    <div class="row justify-content-center">
+        <div class="col-xl-8 col-10 mx-auto">
             <h2>編輯文章</h2>
             <form action="{{route('posts.update',['post'=>$post->id])}}" method="post">
                 @csrf
@@ -22,4 +22,8 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.ckeditor.com/4.15.1/full/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('content');
+</script>
 @endsection

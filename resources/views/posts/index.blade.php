@@ -6,14 +6,20 @@
             <h2>文章列表</h2>
         </div>
         @foreach($posts as $post)
-        <div class="col-8">
+        <div class="col-xl-8 col-10">
             <h3>{{$post->title}}</h3>
             <div class="content">
-                {{$post->content}}
+                
+                {!! Str::limit(strip_tags($post->content),200) !!}
             </div>
             <a href="{{route('posts.show',['post'=>$post->id])}}" class="btn btn-primary">繼續閱讀</a>
            
             <div>最後更新時間 {{$post->updated_at}}</div>
+            <div>
+                @php Carbon\Carbon::setLocale('zh_TW') @endphp
+                最後更新時間 {{ Carbon\Carbon::parse($post->updated_at)->diffForHumans() }}
+                建立時間 {{ Carbon\Carbon::parse($post->created_at)->diffForHumans() }}
+            </div>
         <hr>
         </div>
         @endforeach

@@ -16,8 +16,11 @@ class PostController extends Controller
     {
         //
         // $posts = Post::all();
-        $posts = Post::get();
+        // $posts = Post::get();
+        $posts = Post::orderby('id','DESC')->get();
         return view('posts.index',compact('posts'));
+
+        // 'select * from posts orderby id DESC'
     }
 
     /**

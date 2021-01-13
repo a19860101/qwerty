@@ -2,10 +2,10 @@
 @section('content')
 <div class="container py-5">
     <div class="row justify-content-center">
-        <div class="col-8">
+        <div class="col-xl-8 col-10">
             <h3>{{$post->title}}</h3>
             <div class="content">
-                {{$post->content}}
+                {!! $post->content !!}
             </div>
             <div>最後更新時間 {{$post->updated_at}}</div>
             <hr>
