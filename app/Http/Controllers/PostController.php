@@ -68,7 +68,7 @@ class PostController extends Controller
 
     /**
      * Display the specified resource.
-     *
+     *23737093
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
@@ -88,6 +88,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         //
+        return view('posts.edit',compact('post'));
     }
 
     /**
@@ -100,6 +101,22 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         //
+        // 方法一
+        // $post = Post::findOrFail($post->id);
+        // $post->fill([
+        //     'title'     => $request->title,
+        //     'content'   => $request->content
+        // ]);
+
+        // 方法二
+        // $post = Post::findOrFail($post->id);
+        // $post->fill($request->all());
+
+        // 方法三
+        $post->fill($request->all());
+        $post->save();
+
+        return redirect()-> route('posts.index');
     }
 
     /**
@@ -111,5 +128,16 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+        // 方法一
+        // $post = Post::findOrFail($post->id);
+        // $post->delete();
+
+        // 方法二
+        // $post->delete();
+
+        // 方法三
+        Post::destroy($post->id);
+
+        return redirect()->route('posts.index');
     }
 }
