@@ -27,3 +27,4 @@
 
 Route::resource('/posts','PostController');
 Route::resource('/products','ProductsController');
+Route::resource('/category','CategoryController');
