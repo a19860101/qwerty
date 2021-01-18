@@ -4,6 +4,11 @@
     <div class="row justify-content-center">
         <div class="col-xl-8 col-10">
             <h3>{{$post->title}}</h3>
+            <div>
+                分類: <span class="badge badge-secondary">
+                   {{$post->category->title}}
+                </span>
+            </div>
             <div class="content">
                 {!! $post->content !!}
             </div>

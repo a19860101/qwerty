@@ -1,13 +1,19 @@
 @extends('template.master')
 @section('content')
-<div class="container">
+<div class="container py-4">
     <div class="row justify-content-center">
-        <div class="col-8">
+        <div class="col-xl-8 col-10">
             <h2>文章列表</h2>
+            <hr>
         </div>
         @foreach($posts as $post)
         <div class="col-xl-8 col-10">
             <h3>{{$post->title}}</h3>
+            <div>
+                分類: <span class="badge badge-secondary">
+                   {{$post->category->title}}
+                </span>
+            </div>
             <div class="content">
                 
                 {!! Str::limit(strip_tags($post->content),200) !!}
