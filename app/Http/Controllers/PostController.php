@@ -156,6 +156,7 @@ class PostController extends Controller
 
         // 方法三
         $post->fill($request->all());
+        $post->category_id = $request->category_id;
         $post->save();
 
         return redirect()-> route('posts.index');
