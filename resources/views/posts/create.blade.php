@@ -11,6 +11,14 @@
                     <input type="text" name="title" id="title" class="form-control">
                 </div>
                 <div class="form-group">
+                    <label for="category_id">文章分類</label>
+                    <select name="category_id" id="category_id" class="form-control">
+                        @foreach($categories as $cate)
+                        <option value="{{$cate->id}}">{{$cate->title}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="content">內文</label>
                     <textarea name="content" id="content" cols="30" rows="10" class="form-control"></textarea>
                 </div>
