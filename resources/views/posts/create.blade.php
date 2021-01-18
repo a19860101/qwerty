@@ -4,11 +4,15 @@
     <div class="row">
         <div class="col-xl-8 col-10 mx-auto">
             <h2>新增文章</h2>
-            <form action="{{ route('posts.store')}}" method="post">
+            <form action="{{ route('posts.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="title">文章標題</label>
                     <input type="text" name="title" id="title" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="cover">封面圖片</label>
+                    <input type="file" name="cover" id="cover">
                 </div>
                 <div class="form-group">
                     <label for="category_id">文章分類</label>

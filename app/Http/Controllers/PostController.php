@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -65,13 +66,45 @@ class PostController extends Controller
 
         // 方法四
         // Post::create($request->all());
+        
 
+        //*
         $post = new Post;
+        
+        if($request->file('cover')){
+            $ext = $request->file('cover')->getClientOriginalExtension();
+            $cover = Str::uuid().'.'.$ext;
+            $request->file('cover')->storeAs('public/images',$cover.'.'.$ext);
+        }else{
+            $cover = '';
+        }
+       
+       
         $post->fill($request->all());
         $post->category_id = $request->category_id;
+        $post->cover = $cover;
         $post->save();
 
         return redirect()->route('posts.index');
+
+       
+       
+        // * 檔案上傳
+        // return $request->file('cover');
+        // return $request->file('cover')->store('images');
+        // return $request->file('cover')->store('images','public');
+        // return $request->file('cover')->storeAs('public/images', 'hello');
+
+
+        // return  $request->file('cover')->getClientOriginalName();
+        // return  $request->file('cover')->getClientOriginalExtension();
+
+        // return Str::uuid();
+
+        // $ext = $request->file('cover')->getClientOriginalExtension();
+        // $cover = Str::uuid();
+        // return $request->file('cover')->storeAs('public/images',$cover.'.'.$ext);
+
     }
 
     /**
